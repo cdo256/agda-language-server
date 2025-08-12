@@ -27,6 +27,13 @@
         # Optional: if your stack build needs environment passthrough or impure shell toggles,
         # you can wrap stack via NIX_SHELL hooks; generally not needed if packages are complete.
       };
+      agdaSrc = pkgs.fetchFromGitHub {
+        owner = "agda";
+        repo = "agda";
+        rev = "v2.7.0.1"; # exact commit/tag your submodule pins
+        sha256 = "sha256-N03x5v6ob9ZTuQFknULpEveozQbtDg6wiwNWI81bEZ8=";
+        fetchSubmodules = true;
+      };
     in
     rec {
       packages.als = pkgs.stdenv.mkDerivation {
@@ -40,9 +47,9 @@
         nativeBuildInputs = [
           pkgs.stack
           ghc
+          pkgs.agda
         ] ++ systemDeps;
 
-        # Optional runtime tools
         buildInputs = [
           pkgs.agda
         ];
@@ -54,6 +61,7 @@
           mkdir -p /build/home
           export HOME=/build/home
           export STACK_YAML=${self}/stack.yaml
+          ln -s ${agdaSrc} agda
           # Use system GHC provided by Nix, not Stack’s downloader.
           stack \
             --no-terminal \
