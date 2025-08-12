@@ -4,7 +4,7 @@
     {
       devShells.default = pkgs.mkShell {
         buildInputs = [
-          pkgs.haskell.compiler.ghc96
+          pkgs.haskell.compiler.ghc910
           pkgs.stack
           pkgs.agda
           pkgs.git

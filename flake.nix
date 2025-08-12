@@ -7,7 +7,7 @@
       type = "github";
       owner = "nixos";
       repo = "nixpkgs";
-      ref = "nixos-24.05";
+      ref = "nixos-unstable";
     };
   };
 
