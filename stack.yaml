@@ -5,7 +5,7 @@ compiler-check: newer-minor
 packages:
   - .
 extra-deps:
-  - vendor/Agda.2.7.0.1.tar.gz
+  - vendor/Agda-2.7.0.1.tar.gz
   - network-simple-0.4.2@sha256:3614a0b7e51bcafb5643c3dc3a3a89d20a99671998c8814eb6fc55fa99e38444,1375
 nix:
   enable: true
